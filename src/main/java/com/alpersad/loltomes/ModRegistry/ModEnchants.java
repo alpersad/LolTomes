@@ -1,6 +1,7 @@
 package com.alpersad.loltomes.ModRegistry;
 
 import com.alpersad.loltomes.LolTomes;
+import com.alpersad.loltomes.Singed.SingedEnchantment;
 import com.alpersad.loltomes.Vayne.VayneEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraftforge.fml.RegistryObject;
@@ -12,5 +13,6 @@ public class ModEnchants {
     public static final DeferredRegister<Enchantment> ENCHANTMENT = new DeferredRegister<>(ForgeRegistries.ENCHANTMENTS, LolTomes.MOD_ID);
 
     public static final RegistryObject<Enchantment> VAYNE = ENCHANTMENT.register("vayne", VayneEnchantment::new);
+    public static final RegistryObject<Enchantment> SINGED = ENCHANTMENT.register("singed", SingedEnchantment::new);
 
 }
