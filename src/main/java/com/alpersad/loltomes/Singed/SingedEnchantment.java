@@ -1,5 +1,6 @@
 package com.alpersad.loltomes.Singed;
 
+import com.alpersad.loltomes.Darkhax.EnchantmentTicking;
 import com.alpersad.loltomes.ModRegistry.ModEffects;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentType;
@@ -9,7 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.potion.EffectInstance;
 
-public class SingedEnchantment extends Enchantment{
+public class SingedEnchantment extends EnchantmentTicking {
 
     private static String name = "Singed";
 
@@ -28,8 +29,7 @@ public class SingedEnchantment extends Enchantment{
     }
 
     @Override
-    public void onEntityDamaged(LivingEntity user, Entity target, int level) {
-        super.onEntityDamaged(user, target, level);
+    public void onUserTick(LivingEntity user, int level) {
         user.addPotionEffect(new EffectInstance(ModEffects.POISONTRAIL, 100));
     }
 }
