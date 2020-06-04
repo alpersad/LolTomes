@@ -11,6 +11,8 @@ import net.minecraft.util.math.Vec3d;
 
 public class PoisonTrail extends Effect {
 
+    public static String name = "PoisonTrail";
+
     public PoisonTrail() {
         super(EffectType.NEUTRAL, 0);
     }
@@ -44,5 +46,8 @@ public class PoisonTrail extends Effect {
         }
     }
 
-
+    @Override
+    public String getName() {
+        return new String(name);
+    }
 }
