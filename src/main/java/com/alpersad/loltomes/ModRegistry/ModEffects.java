@@ -1,5 +1,6 @@
 package com.alpersad.loltomes.ModRegistry;
 
+import com.alpersad.loltomes.Singed.PoisonTrail;
 import com.alpersad.loltomes.Vayne.SilverBoltOne;
 import com.alpersad.loltomes.Vayne.SilverBoltThree;
 import com.alpersad.loltomes.Vayne.SilverBoltTwo;
@@ -10,5 +11,6 @@ public class ModEffects {
     public static Effect SILVERBOLTONE = new SilverBoltOne();
     public static Effect SILVERBOLTTWO = new SilverBoltTwo();
     public static Effect SILVERBOLTTHREE = new SilverBoltThree();
+    public static Effect POISONTRAIL = new PoisonTrail();
 
 }
