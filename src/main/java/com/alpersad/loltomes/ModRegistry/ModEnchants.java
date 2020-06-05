@@ -1,5 +1,6 @@
 package com.alpersad.loltomes.ModRegistry;
 
+import com.alpersad.loltomes.Ashe.AsheEnchantment;
 import com.alpersad.loltomes.LolTomes;
 import com.alpersad.loltomes.Singed.SingedEnchantment;
 import com.alpersad.loltomes.Vayne.VayneEnchantment;
@@ -14,5 +15,6 @@ public class ModEnchants {
 
     public static final RegistryObject<Enchantment> VAYNE = ENCHANTMENT.register("vayne", VayneEnchantment::new);
     public static final RegistryObject<Enchantment> SINGED = ENCHANTMENT.register("singed", SingedEnchantment::new);
+    public static final RegistryObject<Enchantment> ASHE = ENCHANTMENT.register("ashe", AsheEnchantment::new);
 
 }
