@@ -2,6 +2,7 @@ package com.alpersad.loltomes.Singed;
 
 import com.alpersad.loltomes.Darkhax.EnchantmentTicking;
 import com.alpersad.loltomes.ModRegistry.ModEffects;
+import com.alpersad.loltomes.ModRegistry.ModEnchants;
 import com.alpersad.loltomes.Vayne.SilverBoltOne;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -23,7 +24,7 @@ public class SingedEnchantment extends EnchantmentTicking {
     private static String name = "Singed";
 
     public SingedEnchantment() {
-        super(Rarity.VERY_RARE, EnchantmentType.ARMOR_CHEST, new EquipmentSlotType[]{ EquipmentSlotType.CHEST });
+        super(Rarity.VERY_RARE, EnchantmentType.ARMOR_CHEST, EquipmentSlotType.CHEST);
     }
 
     @Override
@@ -33,13 +34,15 @@ public class SingedEnchantment extends EnchantmentTicking {
 
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
-        return super.canApplyTogether(ench) && ench != Enchantments.THORNS;
+        return super.canApplyTogether(ench) && ench != Enchantments.THORNS && ench != ModEnchants.MUNDO.get();
     }
 
     @Override
     public void onItemTick(LivingEntity user, int level, ItemStack item, EquipmentSlotType slot) {
         if(!user.world.isRemote()) {
             Collection<EffectInstance> potionlist = user.getActivePotionEffects();
+
+            // reduce durability of armor while poison trail effect is active
             for (EffectInstance effect : potionlist) {
                 if (effect.getEffectName().equals(PoisonTrail.name)) {
                     item.damageItem(1, user, (p_220039_0_) -> {
@@ -48,6 +51,8 @@ public class SingedEnchantment extends EnchantmentTicking {
                     return;
                 }
             }
+
+            // Add poison trail effect
             user.addPotionEffect(new EffectInstance(ModEffects.POISONTRAIL, 50, 0, false, true));
         }
     }

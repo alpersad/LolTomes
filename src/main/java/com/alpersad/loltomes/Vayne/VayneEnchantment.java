@@ -19,7 +19,7 @@ public class VayneEnchantment extends Enchantment {
     private int bugchecktwice = 0; // Checks for issue where onEntityDamaged is called twice
 
     public VayneEnchantment() {
-        super(Rarity.VERY_RARE, EnchantmentType.CROSSBOW, new EquipmentSlotType[] { EquipmentSlotType.MAINHAND });
+        super(Rarity.VERY_RARE, EnchantmentType.CROSSBOW, new EquipmentSlotType[]{EquipmentSlotType.MAINHAND});
     }
 
     @Override
@@ -43,22 +43,21 @@ public class VayneEnchantment extends Enchantment {
             if (!livingentity.isInvulnerableTo(DamageSource.OUT_OF_WORLD)) {
                 Collection<EffectInstance> potionlist = livingentity.getActivePotionEffects();
                 if( potionlist.isEmpty() ) {
-                    livingentity.addPotionEffect(new EffectInstance(ModEffects.SILVERBOLTONE, 400));
+                    livingentity.addPotionEffect(new EffectInstance(ModEffects.SILVERBOLTONE, 200));
+                    return;
                 }else {
                     for( EffectInstance potion : potionlist ){
                         if( potion.getEffectName().equals(SilverBoltOne.name)){
                             livingentity.removePotionEffect(potion.getPotion());
                             livingentity.addPotionEffect(new EffectInstance(ModEffects.SILVERBOLTTWO, 100));
-                            break;
+                            return;
                         }else if(potion.getEffectName().equals(SilverBoltTwo.name)){
                             livingentity.removePotionEffect(potion.getPotion());
                             livingentity.addPotionEffect(new EffectInstance(ModEffects.SILVERBOLTTHREE, 10));
-                            break;
-                        }else{
-                            livingentity.addPotionEffect(new EffectInstance(ModEffects.SILVERBOLTONE, 100));
-                            break;
+                            return;
                         }
                     }
+                    livingentity.addPotionEffect(new EffectInstance(ModEffects.SILVERBOLTONE, 100));
                 }
             }
         }
