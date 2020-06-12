@@ -4,6 +4,7 @@ import com.alpersad.loltomes.Ashe.AsheEnchantment;
 import com.alpersad.loltomes.Evelynn.EvelynnEnchantment;
 import com.alpersad.loltomes.LolTomes;
 import com.alpersad.loltomes.Mundo.MundoEnchantment;
+import com.alpersad.loltomes.Olaf.OlafEnchantment;
 import com.alpersad.loltomes.Singed.SingedEnchantment;
 import com.alpersad.loltomes.Vayne.VayneEnchantment;
 import net.minecraft.enchantment.Enchantment;
@@ -20,5 +21,6 @@ public class ModEnchants {
     public static final RegistryObject<Enchantment> ASHE = ENCHANTMENT.register("ashe", AsheEnchantment::new);
     public static final RegistryObject<Enchantment> MUNDO = ENCHANTMENT.register("mundo", MundoEnchantment::new);
     public static final RegistryObject<Enchantment> EVELYNN = ENCHANTMENT.register("evelynn", EvelynnEnchantment::new);
+    public static final RegistryObject<Enchantment> OLAF = ENCHANTMENT.register("olaf", OlafEnchantment::new);
 
 }
