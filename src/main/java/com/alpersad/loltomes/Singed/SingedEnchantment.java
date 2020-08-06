@@ -3,25 +3,20 @@ package com.alpersad.loltomes.Singed;
 import com.alpersad.loltomes.Darkhax.EnchantmentTicking;
 import com.alpersad.loltomes.ModRegistry.ModEffects;
 import com.alpersad.loltomes.ModRegistry.ModEnchants;
-import com.alpersad.loltomes.Vayne.SilverBoltOne;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import org.lwjgl.system.CallbackI;
 
 import java.util.Collection;
 
 public class SingedEnchantment extends EnchantmentTicking {
 
-    private static String name = "Singed";
+    private static final String name = "Singed";
 
     public SingedEnchantment() {
         super(Rarity.VERY_RARE, EnchantmentType.ARMOR_CHEST, EquipmentSlotType.CHEST);
@@ -38,8 +33,23 @@ public class SingedEnchantment extends EnchantmentTicking {
     }
 
     @Override
+    public void onUserTick(LivingEntity user, int level) {
+        if (user.world.isRemote || level == 0)
+            return;
+        Collection<EffectInstance> potionlist = user.getActivePotionEffects();
+
+        // Removes poison from the user with the Singed enchantment
+        // Effectively grants immunity to poison
+        for (EffectInstance effect : potionlist) {
+            if (effect.getPotion() == Effects.POISON) {
+                user.removePotionEffect(effect.getPotion());
+            }
+        }
+    }
+
+    @Override
     public void onItemTick(LivingEntity user, int level, ItemStack item, EquipmentSlotType slot) {
-        if(!user.world.isRemote()) {
+        if (!user.world.isRemote()) {
             Collection<EffectInstance> potionlist = user.getActivePotionEffects();
 
             // reduce durability of armor while poison trail effect is active
