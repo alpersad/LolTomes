@@ -28,7 +28,7 @@ public class AsheEnchantment extends Enchantment {
     public void onEntityDamaged(LivingEntity user, Entity target, int level) {
         super.onEntityDamaged(user, target, level);
         if(target instanceof LivingEntity){
-            ((LivingEntity) target).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 50, 0, false, true));
+            ((LivingEntity) target).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 25, 0, false, true));
         }
     }
 
