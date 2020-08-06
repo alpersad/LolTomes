@@ -31,7 +31,7 @@ public class MundoEnchantment extends Enchantment {
     public void onUserHurt(LivingEntity user, Entity attacker, int level) {
         super.onUserHurt(user, attacker, level);
         if(user.getHealth() <= 5){
-            user.addPotionEffect(new EffectInstance(Effects.REGENERATION, 120, 2, false, true));
+            user.addPotionEffect(new EffectInstance(Effects.REGENERATION, 120, 3, false, true));
             user.getItemStackFromSlot(EquipmentSlotType.CHEST).damageItem(10, user, (p_220039_0_) -> {
                 p_220039_0_.sendBreakAnimation(EquipmentSlotType.CHEST);
             });
