@@ -20,7 +20,7 @@ public class EvelynnEnchantment extends EnchantmentTicking {
     @Override
     public void onItemTick(LivingEntity user, int level, ItemStack item, EquipmentSlotType slot) {
         if(!user.getEntityWorld().isRemote()){
-            user.addPotionEffect(new EffectInstance(Effects.INVISIBILITY, 50, 0, false, false));
+            user.addPotionEffect(new EffectInstance(Effects.INVISIBILITY, 40, 0, false, false));
         }
     }
 
