@@ -14,7 +14,7 @@ public class PoisonTrail extends Effect {
     public static String name = "PoisonTrail";
 
     public PoisonTrail() {
-        super(EffectType.NEUTRAL, 0);
+        super(EffectType.BENEFICIAL, 0);
     }
 
     @Override
