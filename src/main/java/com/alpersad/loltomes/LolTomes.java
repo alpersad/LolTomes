@@ -12,6 +12,7 @@ public class LolTomes {
     public LolTomes() {
 
         ModEnchants.ENCHANTMENT.register(FMLJavaModLoadingContext.get().getModEventBus());
+
     }
 
 }

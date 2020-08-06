@@ -1,9 +1,12 @@
 package com.alpersad.loltomes.ModRegistry;
 
 import com.alpersad.loltomes.Ashe.AsheEnchantment;
+import com.alpersad.loltomes.Blitzcrank.BlitzcrankEnchantment;
 import com.alpersad.loltomes.Evelynn.EvelynnEnchantment;
 import com.alpersad.loltomes.LolTomes;
 import com.alpersad.loltomes.Mundo.MundoEnchantment;
+import com.alpersad.loltomes.NasusEnchantment.NasusEnchantment;
+import com.alpersad.loltomes.Nidalee.NidaleeEnchantment;
 import com.alpersad.loltomes.Olaf.OlafEnchantment;
 import com.alpersad.loltomes.Singed.SingedEnchantment;
 import com.alpersad.loltomes.Vayne.VayneEnchantment;
@@ -22,5 +25,8 @@ public class ModEnchants {
     public static final RegistryObject<Enchantment> MUNDO = ENCHANTMENT.register("mundo", MundoEnchantment::new);
     public static final RegistryObject<Enchantment> EVELYNN = ENCHANTMENT.register("evelynn", EvelynnEnchantment::new);
     public static final RegistryObject<Enchantment> OLAF = ENCHANTMENT.register("olaf", OlafEnchantment::new);
+    public static final RegistryObject<Enchantment> NIDALEE = ENCHANTMENT.register("nidalee", NidaleeEnchantment::new);
+    public static final RegistryObject<Enchantment> BLITZCRANK = ENCHANTMENT.register("blitzcrank", BlitzcrankEnchantment::new);
+    public static final RegistryObject<Enchantment> NASUS = ENCHANTMENT.register("nasus", NasusEnchantment::new);
 
 }
