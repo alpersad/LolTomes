@@ -1,13 +1,14 @@
 # LoL Tomes
 
-LoLTome is a Minecraft mod which adds new enchantments to the base game. This mod uses concepts such as event handling,
+LoLTome is a Minecraft mod which adds new enchantments to the base game. I began developing this mod as a
+form of practice to become familiar with Minecraft Forge's modding environment. In developing this mod, I primarily used 
+concepts such as event handling,
 vector mathematics 
-and object-oriented design principles for its enchantment implementations.  
+and object-oriented design principles.
 
 The mod contains the following enchantments:
 - [x] Ashe
 - [x] Blitzcrank
-- [ ] Cassiopeia
 - [x] Mundo
 - [x] Nasus
 - [x] Nidalee
@@ -59,12 +60,5 @@ Can be applied to: Axe, Sword
 When an item with this enchantment strikes an enemy, the trident pulls the enemy towards the player character.
 
 Can be applied to: Trident
-
-## Enchantments in Development
-
-### Cassiopeia
-The user stuns a target who makes eye contact with the user. 
-
-Can be applied to: Helmet
 
 
